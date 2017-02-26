@@ -9,28 +9,39 @@ feature 'posts' do
     end
   end
 
-  context 'displaying added post' do
-    
-      before do
-      	Post.create(caption: "Hello cat", imageurl: 'http://i.imgur.com/ijMmg0t.jpg')
-      end 
+	context 'adding a post' do
+		scenario 'should be able to add a post' do
+			visit '/posts'
+			click_link 'Add a post'
+			fill_in 'Caption', with: 'My baby'
+			attach_file("Image", Rails.root + "spec/images/example.jpg")
+			click_button("Create Post")
+			expect(page).to have_content 'My baby'
+			expect(page).to have_css('img', '/system/posts/images/000/000/001/medium/example.jpg')
+		end
+	end
 
-      scenario 'should display a caption' do
-      visit '/posts'
-      expect(page).to have_content 'Hello cat'
-    	end
-    	# scenario 'should display a photo' do
-     #  visit '/posts'
-     # 	expect(page).to have_css('img', text: 'http://i.imgur.com/ijMmg0t.jpg')
-    	# end
-  	end
+	context 'editing post' do
 
-  	 context 'adding a post' do
-      scenario 'should be able to add a post' do
-      visit '/posts'
-      click_link 'Add a post'
-      fill_in 'Caption', with: 'My baby'
-      attach_file("Upload Your File", Rails.root + "spec/images/")
-    	end
-  	end
+		scenario 'let a user edit a post' do
+			add_a_post
+			click_link 'Edit'
+			fill_in 'Caption', with: 'Hello you'
+			click_button 'Update Post'
+			expect(page).to have_content 'Hello you'
+		end
+
+	end
+
+	context 'deleting post' do
+
+	  scenario 'removes a restaurant when a user clicks a delete link' do
+	    add_a_post
+	    click_link 'Delete'
+	    expect(page).not_to have_content 'Hello there'
+	    expect(page).to have_content 'Post deleted successfully'
+	  end
+
+end
+
 end

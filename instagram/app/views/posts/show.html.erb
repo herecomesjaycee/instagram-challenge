@@ -1,0 +1,7 @@
+<p><%= @post.caption%></p>
+<%= image_tag 'https:' + @post.image.url[0..4] + 'eu-west-2.' + @post.image.url(:medium)[5..@post.image.url.length-1] %>
+<% @comments.each do |comment| %>
+  <div class=comment>
+    <h4> <%= comment.content %> </h4>
+  </div>
+  <% end %>
