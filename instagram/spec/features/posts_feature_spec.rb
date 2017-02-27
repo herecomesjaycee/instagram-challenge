@@ -11,6 +11,7 @@ feature 'posts' do
 
 	context 'adding a post' do
 		scenario 'should be able to add a post' do
+			create_user
 			visit '/posts'
 			click_link 'Add a post'
 			fill_in 'Caption', with: 'My baby'
@@ -24,6 +25,7 @@ feature 'posts' do
 	context 'editing post' do
 
 		scenario 'let a user edit a post' do
+			create_user
 			add_a_post
 			click_link 'Edit'
 			fill_in 'Caption', with: 'Hello you'
@@ -35,7 +37,8 @@ feature 'posts' do
 
 	context 'deleting post' do
 
-	  scenario 'removes a restaurant when a user clicks a delete link' do
+	  scenario 'removes a post when the delete link is clicked' do
+	    create_user
 	    add_a_post
 	    click_link 'Delete'
 	    expect(page).not_to have_content 'Hello there'
