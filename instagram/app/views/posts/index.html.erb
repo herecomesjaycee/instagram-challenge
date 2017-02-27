@@ -2,7 +2,7 @@
 
 <% if @posts.any? %>
   <% @posts.each do |post| %>
-  <div class=post>
+  <div class="post">
     <%= image_tag 'https:' + post.image.url[0..4] + 'eu-west-2.' + post.image.url(:medium)[5..post.image.url.length-1] %>
     <h4> <%= post.caption %> </h4>
     <%= link_to "Edit", edit_post_path(post) %>
