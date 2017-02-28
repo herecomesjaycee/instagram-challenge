@@ -3,11 +3,11 @@
 <% if @posts.any? %>
   <% @posts.each do |post| %>
   <div class="post">
-    <%= image_tag 'https:' + post.image.url[0..4] + 'eu-west-2.' + post.image.url(:medium)[5..post.image.url.length-1] %>
+    <%= image_tag post.image.url %>
     <h4> <%= post.caption %> </h4>
     <%= link_to "Edit", edit_post_path(post) %>
-    <%= link_to "Comment", new_post_comment_path(post) %>
-    <%= link_to "Like", post_likes_path(post), method: :create, class: 'likes-link' %>
+    <%= link_to "Comment", new_post_comment_path(post) %>         
+    <%= link_to "Like", post_likes_path(post), class: 'likes-link'%>
     <%= link_to "Delete", post_path(post), method: :delete %>
     <span class="likes_count"> <%= post.likes.count %> </span> <%= 'like'.pluralize(post.likes.count)%>
   </div>

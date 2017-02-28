@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+.user-link {
+	font-size: 14px;
+	float: left;
+	background-color: purple;
+	color: white;
+	padding: 5px;
+	border-radius: 5px;
+	margin: 2px;
+
+}
+
+#right {
+	float: right;
+}
+
+a{
+	font-size: 18px;
+}
