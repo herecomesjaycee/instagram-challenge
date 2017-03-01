@@ -54,4 +54,26 @@ As an user,
 So I can rate photos
 I should be able to click 'Like' button
 ```
+Installation Guide
+-----
+1) Git Fork/Clone this repository `git clone https://github.com/herecomesjaycee/instagram-challenge.git`
+
+2) Change directory into 'instagram-challenge' `cd instagram-challenge' 
+
+3) Change directory into 'instagram' `cd instagram' 
+
+4) Install bundle `bundle install`
+
+5) Run database creation `bin/rake db:create`
+
+6) Run database migration `bin/rake db:migration`
+
+7) Run the server `bin/rails s`
+
+8) Type in `localhost:3000` to start enjoying the Instagram app
+
+Screenshot
+---
+![screen shot 2017-03-01 at 09 20 49](https://cloud.githubusercontent.com/assets/13175171/23453509/8bae84ae-fe60-11e6-8ed4-abd3203afbac.png)
+
 
