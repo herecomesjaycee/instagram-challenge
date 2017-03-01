@@ -58,9 +58,9 @@ Installation Guide
 -----
 1) Git Fork/Clone this repository `git clone https://github.com/herecomesjaycee/instagram-challenge.git`
 
-2) Change directory into 'instagram-challenge' `cd instagram-challenge' 
+2) Change directory into 'instagram-challenge' `cd instagram-challenge` 
 
-3) Change directory into 'instagram' `cd instagram' 
+3) Change directory into 'instagram' `cd instagram`
 
 4) Install bundle `bundle install`
 
