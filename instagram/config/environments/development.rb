@@ -6,7 +6,7 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.paperclip_defaults = {
       :storage => :s3,
-      :s3_region => ENV['AWS_REGION'],
+      :s3_region => "us-east-1",
       :s3_credentials => {
         :bucket => ENV['S3_BUCKET_NAME'],
         :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
